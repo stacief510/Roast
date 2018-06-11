@@ -8,7 +8,7 @@ import NewPost from '../components/NewPost';
 class PostContainer extends Component {
     state = {
             drinks:[],
-            user: [],
+            user:[],
             name: '',
             current_city: '',
             editable: true,
@@ -18,7 +18,7 @@ class PostContainer extends Component {
             review: '',
             rating: '',
             drink_photo:'',
-            user_id: ''
+    
         }
    
      componentDidMount(){
@@ -41,19 +41,27 @@ class PostContainer extends Component {
         })
     }
 
-    onSubmit = (newDrink) => {
-        let currentUser_Id = this.state.user.id;
+    onSubmit = () => {
+        let currentUser_Id = this.state.drinks.user_id;
+        console.log('no user', currentUser_Id)
+        const newDrink ={
+            drink: this.state.drink,
+            store: this.state.store,
+            review_title: this.state.review_title,
+            review: this.state.review,
+            rating: this.state.rating,
+            drink_photo: this.state.drink_photo,
+        }
         axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
             .then(res => {
-                console.log("FROM POST CONTAINER: ", res.data);
-                this.state.user.id = res.data.user_id;
-                this.setState({
-                    drinks: [
-                        ...this.state.drinks,
-                        newDrink
-                    ]
-                });
-        });
+                console.log('heyyooo new drank:', res.data)
+                // this.setState({
+                //     drinks: [
+                //         ...this.state.drinks,
+                //         newDrink: res.data
+                //     ]
+                // })
+            });
     }
     
     render(){
