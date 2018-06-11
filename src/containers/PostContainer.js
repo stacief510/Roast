@@ -15,7 +15,7 @@ class PostContainer extends Component {
         }
    
      componentDidMount(){
-        axios.get(`https://localhost:3001/users/${this.props.match.params.user_id}/drinks`)
+        axios.get(`http://localhost:3001/users/${this.props.match.params.user_id}/drinks`)
             .then((res)=>{
                 console.log('drink data:', res.data)
                 this.setState({
@@ -24,7 +24,7 @@ class PostContainer extends Component {
             }).then(() => {
                     
             })
-        axios.get(`https://localhost:3001/users/${this.props.match.params.user_id}`)
+        axios.get(`http://localhost:3001/users/${this.props.match.params.user_id}`)
         .then((res)=>{
             console.log('getting all users: ', res.data)
             this.setState({
@@ -40,7 +40,7 @@ class PostContainer extends Component {
             name: this.state.name,
             current_city: this.state.current_city,
         }
-        axios.post(`https://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
+        axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
             .then(res => {
                 console.log("FROM POST CONTAINER: ", res.data);
                 //  let updatedDrinks = this.state.drinks.concat(newDrink)
@@ -56,6 +56,7 @@ class PostContainer extends Component {
     
     render(){
         
+        console.log('this is the user', this.state.user);
         return(
             <div>
                 <Header />

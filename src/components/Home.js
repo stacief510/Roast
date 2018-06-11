@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import sideCup from '../images/sideCup1.jpg';
+import Header from '../components/Header';
 
 class Home extends Component {
 	state = {
@@ -28,8 +29,7 @@ class Home extends Component {
     return (
         <div className="home">
             <img alt="homeImg" className="homeImg" src={sideCup} />
-            <a href="/register">Create an Account</a>
-            <a href="/login">Log In</a>
+            <Header />
             {result}
             <div className='title'>
                 <h1 className="roast">Roast</h1>
