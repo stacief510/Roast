@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import './App.css';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+       <Switch>
+          <Route exact path='/roast' component={Home} />
+          <Route path='/signup' component={Signup} />
+          <Route path='/login' render={ (props) => <Login {...props} setCurrentUser={this.setCurrentUser} /> } />
+          {/* <Route exact path='/roast/find' component={Map} /> */}
+          <Route exact path='/roast/users/:user_id/drinks' component={PostContainer} />
+          <Route exact path='/roast/users/:user_id/drinks/:drink_id' component={Drink} />
+      </Switch>
       </div>
     );
   }
