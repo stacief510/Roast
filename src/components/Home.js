@@ -1,15 +1,36 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import axios from 'axios';
+import {Link} from 'react-router-dom';
 import sideCup from '../images/sideCup1.jpg';
 
-const Home = () => {
+class Home extends Component {
+	state = {
+		users: ''
+    }
+
+    componentDidMount() {
+		axios.get('http://localhost:3001/users')
+		  .then(res => this.setState({users: res.data}))
+		  .catch(err => console.log(err));
+	}
+
+	render() {
+        let result = this.state.users 
+		? this.state.users.map(user => {
+			return (
+				<div key={user._id} className="home">
+                    <Link to={`/roast/users/${user._id}/drinks`}>
+                    </Link>
+				</div>
+				 )
+          })
+        : <h4>Loading...</h4>
     return (
         <div className="home">
             <img alt="homeImg" className="homeImg" src={sideCup} />
-
-  
-
-
+            <a href="/register">Create an Account</a>
+            <a href="/login">Log In</a>
+            {result}
             <div className='title'>
                 <h1 className="roast">Roast</h1>
                 <h3>A place to espresso yourself.</h3>
@@ -18,5 +39,5 @@ const Home = () => {
         </div>
     );
   };
-
+}
 export default Home;
