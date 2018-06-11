@@ -52,7 +52,7 @@ class Register extends Component {
                             <label>Confirm Password:</label>
                             <input id="confirm_pass" type="password" name="password2" value={this.state.password2} onInput={this.handleChange} />
                             <button type ='submit' className="btn btn-info">Register Now</button>
-                            <p>Already have an account?<Link to='/login'>Log In</Link></p>
+                            <p className="PLink">Already have an account?<Link to='/login'>Log In</Link></p>
 
                     </form>
 					</div>

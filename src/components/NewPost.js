@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 class NewPost extends Component {
 	state = {
-		name: '',
+		drink: '',
 		store: '',
 		review_title: '',
 		review: '',
@@ -42,7 +42,7 @@ class NewPost extends Component {
 								<div className="modal-body">
 									
 											<label>Name of Drink:</label>
-											<input type='text' name="name" placeholder="Drink Name Here" value={this.state.name} onChange={this.handleChange}/>
+											<input type='text' name="drink" placeholder="Drink Name Here" value={this.state.drink} onChange={this.handleChange}/>
 											<label>Store:</label>
 											<input type='text' name="store" placeholder="Store Name Here" value={this.state.store} onChange={this.handleChange}/>
 											<label>Review Title:</label>

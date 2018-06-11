@@ -12,6 +12,13 @@ class PostContainer extends Component {
             name: '',
             current_city: '',
             editable: true,
+            drink: '',
+            store: '',
+            review_title: '',
+            review: '',
+            rating: '',
+            drink_photo:'',
+            user_id: ''
         }
    
      componentDidMount(){
@@ -34,17 +41,13 @@ class PostContainer extends Component {
         })
     }
 
-    onSubmit = (e) => {
-        let currentUser_Id = this.props.match.params.user_id
-        const newDrink ={
-            name: this.state.name,
-            current_city: this.state.current_city,
-        }
+    onSubmit = (newDrink) => {
+       
+        let currentUser_Id = this.state.user.id;
         axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
             .then(res => {
                 console.log("FROM POST CONTAINER: ", res.data);
-                //  let updatedDrinks = this.state.drinks.concat(newDrink)
-             
+                let newDrink = res.data
                 this.setState({
                     drinks: [
                         ...this.state.drinks,

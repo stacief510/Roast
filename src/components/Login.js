@@ -53,7 +53,7 @@ class Login extends Component {
 			            <input id="password" type="password" name="password" value={this.state.password} onInput={this.handleChange} />
                     
                     <button type='submit' className="btn btn-info">Login</button>
-                    <p className="margin medium-small"><Link to='/register'>New to Roast? Register Now!</Link></p>
+                    <p className="PLink"><Link to='/register'>New to Roast? Register Now!</Link></p>
                 </form>
 			    </div>
 			</div>
