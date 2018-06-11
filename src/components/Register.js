@@ -3,7 +3,7 @@ import axios from 'axios';
 import {Link} from 'react-router-dom';
 
 
-class Signup extends Component {
+class Register extends Component {
 	state = {
 		name: '',
 		email: '',
@@ -62,4 +62,4 @@ class Signup extends Component {
 	}
 }
 
-export default Signup;
+export default Register;
