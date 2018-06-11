@@ -36,7 +36,7 @@ class Login extends Component {
 		  	// Set current user
               this.props.setCurrentUser(decoded);
               
-		  	this.props.history.push('/roast/users/:user_id');
+		  	this.props.history.push(`/roast/users/:user_id/drinks`);
 		  })
 		  .catch(err => console.log(err));
 	}

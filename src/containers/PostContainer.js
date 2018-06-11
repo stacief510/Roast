@@ -30,7 +30,7 @@ class PostContainer extends Component {
             this.setState({
                 user: res.data
             })
-        .catch(err => console.log(err));
+        
         })
     }
 
