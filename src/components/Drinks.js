@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-class Drinks extends Component{
+const Drinks =(props) =>{
     
-    render(){
-
-        let result = this.props.drinks.map((drink, idx) => {
+        let result = props.drinks.map((drink, idx) => {
             return(
                         <div className='drinksList' key={idx}>
                             <div className="review row">
@@ -28,7 +26,7 @@ class Drinks extends Component{
                  {result}
             </div>
         )
-    }
+    
 }
 
 export default Drinks;

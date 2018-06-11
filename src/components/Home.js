@@ -29,7 +29,6 @@ class Home extends Component {
     return (
         <div className="home">
             <img alt="homeImg" className="homeImg" src={sideCup} />
-            <Header users={this.state.users}/>
             {result}
             <div className='title'>
                 <h1 className="roast">Roast</h1>

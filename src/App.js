@@ -7,7 +7,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Drink from './components/Drink';
 import PostContainer from './containers/PostContainer';
-
+import Header from './components/Header';
 
 class App extends Component {
   state = {
@@ -45,16 +45,17 @@ class App extends Component {
       <Route {...rest} render={(props) => (
         this.state.isAuthenticated === true
           ? <Component {...props} user={this.state.currentUser}  />
-          : <Redirect to='/login' />
+          : <Redirect to='/login'/>
       )} />
     )
 
     return (
       <div className="App">
+        <Header handleLogout={this.handleLogout} isAuthed={this.state.isAuthenticated} user={this.state.currentUser}  />
        <Switch>
           <Route exact path='/roast' component={Home} />
           <Route path='/register' component={Register} />
-          <Route path='/login' render={ (props) => <Login {...props} setCurrentUser={this.setCurrentUser} /> } />
+          <Route path='/login' render={ (props) => <Login {...props} setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} /> } />
           {/* <Route exact path='/roast/find' component={Map} /> */}
           <PrivateRoute exact path='/roast/users/:user_id/drinks' component={PostContainer} />
           <PrivateRoute exact path='/roast/users/:user_id/drinks/:drink_id' component={Drink} />
