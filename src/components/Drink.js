@@ -83,7 +83,7 @@ class Drink extends Component {
                         src={this.state.drinks.drink_photo} />
                     <div className="singleReview col-md-8" data-drink-index= {this.props.match.params.drink_id} >
                         <h2>
-                        Drink: {this.state.drinks.name} 
+                        Drink: {this.state.drinks.drink} 
                         </h2>
                         <h4>
                         Store: {this.state.drinks.store} 

@@ -33,7 +33,7 @@ class PostContainer extends Component {
             })
         axios.get(`http://localhost:3001/users/${this.props.match.params.user_id}`)
         .then((res)=>{
-            console.log('getting all users: ', res.data)
+            console.log('getting one user: ', res.data)
             this.setState({
                 user: res.data
             })
@@ -42,12 +42,11 @@ class PostContainer extends Component {
     }
 
     onSubmit = (newDrink) => {
-       
         let currentUser_Id = this.state.user.id;
         axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
             .then(res => {
                 console.log("FROM POST CONTAINER: ", res.data);
-                let newDrink = res.data
+                this.state.user.id = res.data.user_id;
                 this.setState({
                     drinks: [
                         ...this.state.drinks,

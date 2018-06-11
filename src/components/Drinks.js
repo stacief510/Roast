@@ -11,7 +11,7 @@ const Drinks =(props) =>{
                                     <img alt="drinkPic" className="drinkPic" src={drink.drink_photo}/>
                                 </div>
                                 <div className="col-md-8">
-                                    <h3> Drink: <Link to={`/roast/users/${drink.user_id}/drinks/${drink._id}`}>{drink.name}</Link></h3>
+                                    <h3> Drink: <Link to={`/roast/users/${drink.user_id}/drinks/${drink._id}`}>{drink.drink}</Link></h3>
                                     <h4> Store: {drink.store} </h4>
                                     <h4> Title: {drink.review_title} </h4>
                                     <h4> Review: {drink.review} </h4>
