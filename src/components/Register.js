@@ -28,7 +28,7 @@ class Register extends Component {
 				current_city: this.state.current_city,
 			}
 
-			axios.post('http://localhost:3001/register')
+			axios.post('http://localhost:3001/register', newUser)
 			  .then(res => this.props.history.push('/login'))
 			  .catch(err => console.log(err));
 		}
