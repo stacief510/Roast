@@ -8,6 +8,7 @@ import Home from './components/Home';
 import Drink from './components/Drink';
 import PostContainer from './containers/PostContainer';
 import Header from './components/Header';
+import Map from './components/Map';
 
 class App extends Component {
   state = {
@@ -56,7 +57,7 @@ class App extends Component {
           <Route exact path='/roast' component={Home} />
           <Route path='/register' component={Register} />
           <Route path='/login' render={ (props) => <Login {...props} setCurrentUser={this.setCurrentUser} currentUser={this.state.currentUser} /> } />
-          {/* <Route exact path='/roast/find' component={Map} /> */}
+          <Route exact path='/roast/find' component={Map} />
           <PrivateRoute exact path='/roast/users/:user_id/drinks' component={PostContainer} />
           <PrivateRoute exact path='/roast/users/:user_id/drinks/:drink_id' component={Drink} />
       </Switch>

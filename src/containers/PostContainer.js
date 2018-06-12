@@ -64,7 +64,6 @@ class PostContainer extends Component {
                         <h2>{this.state.user.name}</h2>
                         <h3>{this.state.user.current_city}</h3>
                         <button className="btn btn-info create" data-toggle="modal" data-target="#modal">Create a Review</button>
-                        <a href='#'>Find Coffee</a>
                         <a href='#'>Top Rated Coffee</a>
                     </aside>
 
