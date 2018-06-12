@@ -1,15 +1,50 @@
 import React, {Component} from 'react';
-import Header from './Header';
+import Header from './Header'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from  'google-maps-react';
+import axios from 'axios';
 const API_KEY = 'AIzaSyA_BiGhxTrDhBx8bBEJ41Elbjt7n419I_Q';
-
 class  MapContainer extends Component {
   state = {
+    places:{},
     showingInfoWindow: false,
     activeMarker: {},
     selectedPlace: {},
+    currentLocation:{
+        lat: null,
+        lng: null }
   };
+
+  getCoffeeShops = () => {
+    axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.774929,-122.419416&radius=1500&type=cafe&key=AIzaSyA_BiGhxTrDhBx8bBEJ41Elbjt7n419I_Q')
+      .then(res => {
+        console.log(res)
+        return res;
+      })
+  }
  
+  componentDidMount(){
+
+    if (navigator && navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((pos) => {
+        const coords = pos.coords;
+        this.setState({
+          currentLocation: {
+            lat: coords.latitude,
+            lng: coords.longitude
+          }
+        });
+        console.log('sf', this.state)
+
+        this.getCoffeeShops();
+
+
+
+        //do a search for coffee then render results onto page. 
+
+      });
+    }
+  }
+
   onMarkerClick = (props, marker, e) =>
     this.setState({
       selectedPlace: props,
@@ -26,7 +61,6 @@ class  MapContainer extends Component {
     }
   };
 
-  // `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-37.778519,-122.405640&radius=1500&type=coffee&keyword=cruise&key=${API_KEY}`
  
   render() {
     const style = {
@@ -35,30 +69,34 @@ class  MapContainer extends Component {
       top: '100px',
       left: '5px',
     }
-    
+
     return (
       <div>
         <Header />
         <div className='map'>
           <Map google={this.props.google}  
-          // onTilesLoaded={props.fetchPlaces}
-          // ref={props.onMapMounted}
-          // onBoundsChanged={props.fetchPlaces}
           style={style}
-          initialCenter={{
-            lat: 37.778519,
-            lng: -122.405640}}
-            zoom={12}
-            onClick={this.onMapClicked}>
-
+          center={
+            {lat: this.state.currentLocation.lat,
+            lng: this.state.currentLocation.lng}
+          }
+            zoom={14}
+            onClick={this.onMapClicked}
+            nearbySearch={{
+              location: this.state.currentLocation,
+              radius: 5500,
+              type:['coffee']}
+            }>
+        
             <Marker onClick={this.onMarkerClick}
-                      position={{lat: 37.778519, lng: -122.405640}}  />
+                      position={{lat: this.state.currentLocation.lat, lng: this.state.currentLocation.lng}}
+                      />
 
             <InfoWindow onClose={this.onInfoWindowClose}
                 marker={this.state.activeMarker}
                 visible={this.state.showingInfoWindow}>
                 <div>
-                  <h1>{this.state.selectedPlace.name}</h1>
+                  <h1> <span role="img" aria-labelledby="sleepy">😴 </span> </h1>
                 </div>
             </InfoWindow>
           </Map> 

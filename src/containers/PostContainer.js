@@ -41,7 +41,7 @@ class PostContainer extends Component {
         axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
             .then(res => {
                 let newDrink = res.data;
-                console.log('heyyooo new drank:', res.data);
+                console.log('heyyooo new drank:', res.data.user_id);
                 this.setState({
                     drinks: [
                         ...this.state.drinks,
