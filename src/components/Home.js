@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 import sideCup from '../images/sideCup1.jpg';
-import Header from '../components/Header';
 
 class Home extends Component {
 	state = {

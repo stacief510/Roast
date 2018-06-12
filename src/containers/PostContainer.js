@@ -37,19 +37,21 @@ class PostContainer extends Component {
 
     onSubmit = (newDrink) => {
         let currentUser_Id = this.state.user._id;
-       
-        axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
-            .then(res => {
-                let newDrink = res.data;
-                console.log('heyyooo new drank:', res.data.user_id);
-                this.setState({
-                    drinks: [
-                        ...this.state.drinks,
-                        newDrink
-                    ]
-                })
+        console.log('currentUserId:', currentUser_Id);
+            newDrink.user_id = currentUser_Id;
+            axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
+                 .then(res => {
+                    
+                    console.log('heyyooo new drank:', res.data.user_id);
+                    this.setState({
+                        drinks: [
+                            ...this.state.drinks,
+                            newDrink
+                        ]
+                    })
             });
     }
+
     
     render(){
         

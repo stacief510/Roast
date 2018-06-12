@@ -3,7 +3,9 @@ import Header from './Header'
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from  'google-maps-react';
 import axios from 'axios';
 const API_KEY = 'AIzaSyA_BiGhxTrDhBx8bBEJ41Elbjt7n419I_Q';
+
 class  MapContainer extends Component {
+
   state = {
     places:{},
     showingInfoWindow: false,
@@ -14,13 +16,6 @@ class  MapContainer extends Component {
         lng: null }
   };
 
-  getCoffeeShops = () => {
-    axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=37.774929,-122.419416&radius=1500&type=cafe&key=AIzaSyA_BiGhxTrDhBx8bBEJ41Elbjt7n419I_Q')
-      .then(res => {
-        console.log(res)
-        return res;
-      })
-  }
  
   componentDidMount(){
 
@@ -34,15 +29,23 @@ class  MapContainer extends Component {
           }
         });
         console.log('sf', this.state)
-
         this.getCoffeeShops();
-
+        console.log('coffeeshops loaded')
+        
 
 
         //do a search for coffee then render results onto page. 
 
       });
     }
+  }
+
+  getCoffeeShops = () => {
+    axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentLocation.lat},${this.state.currentLocation.lng}&radius=1500&type=cafe&key=AIzaSyA_BiGhxTrDhBx8bBEJ41Elbjt7n419I_Q`)
+      .then(res => {
+        console.log(res)
+        return res;
+      })
   }
 
   onMarkerClick = (props, marker, e) =>
