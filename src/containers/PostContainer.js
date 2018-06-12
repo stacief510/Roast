@@ -12,13 +12,6 @@ class PostContainer extends Component {
             name: '',
             current_city: '',
             editable: true,
-            drink: '',
-            store: '',
-            review_title: '',
-            review: '',
-            rating: '',
-            drink_photo:'',
-    
         }
    
      componentDidMount(){
@@ -35,32 +28,26 @@ class PostContainer extends Component {
         .then((res)=>{
             console.log('getting one user: ', res.data)
             this.setState({
-                user: res.data
+                user: res.data,
+               
             })
         
         })
     }
 
-    onSubmit = () => {
-        let currentUser_Id = this.state.drinks.user_id;
-        console.log('no user', currentUser_Id)
-        const newDrink ={
-            drink: this.state.drink,
-            store: this.state.store,
-            review_title: this.state.review_title,
-            review: this.state.review,
-            rating: this.state.rating,
-            drink_photo: this.state.drink_photo,
-        }
+    onSubmit = (newDrink) => {
+        let currentUser_Id = this.state.user._id;
+       
         axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
             .then(res => {
-                console.log('heyyooo new drank:', res.data)
-                // this.setState({
-                //     drinks: [
-                //         ...this.state.drinks,
-                //         newDrink: res.data
-                //     ]
-                // })
+                let newDrink = res.data;
+                console.log('heyyooo new drank:', res.data);
+                this.setState({
+                    drinks: [
+                        ...this.state.drinks,
+                        newDrink
+                    ]
+                })
             });
     }
     
