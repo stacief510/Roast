@@ -108,9 +108,9 @@ class Drink extends Component {
         else{
             return(
             <div className="updateDrinkForm">
-                <form className="form-group" onSubmit={this.onSubmit}>
+                <form className="form-group updateForm" onSubmit={this.onSubmit}>
                     <label>Drink:</label>
-                    <input className="form-control" name="name" onChange={this.handleChange} type="text"  value={this.state.drinks.name}/>
+                    <input className="form-control" name="drink" onChange={this.handleChange} type="text"  value={this.state.drinks.drink}/>
                     <label>Store:</label>
                     <input className="form-control" name="store" onChange={this.handleChange} type="text"  value={this.state.drinks.store}/>
                     <label>Title:</label>
@@ -118,7 +118,7 @@ class Drink extends Component {
                     <label>Review:</label>
                     <input className="form-control" name="review" onChange={this.handleChange} type="text" value={this.state.drinks.review}/>
                     <label>Rating:</label>
-                    <input className="form-control" name="rating" onChange={this.handleChange} type="text" value={this.state.drinks.rating}/>
+                    <input className="form-control" type="number" min="1" max="5" name="rating" onChange={this.handleChange} type="text" value={this.state.drinks.rating}/>
                     <button className="btn btn-info" type="submit" >Save Event</button>
                 </form>
             </div>

@@ -7,7 +7,7 @@ class NewPost extends Component {
 		review_title: '',
 		review: '',
 		rating: '',
-		drink_photo: '',
+		drink_photo: ''
 	}
 
 	handleChange = (e) => {
@@ -24,6 +24,7 @@ class NewPost extends Component {
 
 	closeModal(){
 		document.getElementById("modal").click();
+		
 	}
 
 	render(){
@@ -50,14 +51,14 @@ class NewPost extends Component {
 											<label>Review:</label>
 											<textarea className="textarea" wrap="hard" type='area' name="review" value={this.state.review} onChange={this.handleChange} />
 											<label>Rating:</label>
-											<input type='text' name="rating" placeholder="Rate this drink: 1 - 5. 5 being the best!" value={this.state.rating} onChange={this.handleChange}/>
+											<input type='number' min="1" max="5" name="rating" placeholder="Rate this drink: 1 - 5. 5 being the best!" value={this.state.rating} onChange={this.handleChange}/>
 											<label>Add a Photo:</label>
 											<input type='text' name="drink_photo" placeholder="url of photo" value={this.state.drink_photo} onChange={this.handleChange}/>
 									
 								</div>
 								<div className="modal-footer">
 										<button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-										<button type="submit" className="btn btn-primary" onClick={this.closeModal}>Save</button>
+										<button type="submit" className="btn btn-primary" disabled={this.state.rating>5} onClick={this.closeModal}>Save</button>
 								</div>
 
 							</form>

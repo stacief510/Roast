@@ -99,6 +99,10 @@ aside a{
   width: 100%;
   height: 100px;
 }
+.updateForm{
+  position: relative;
+  top: 100px;
+}
 .map{
   top: 100px;
 }

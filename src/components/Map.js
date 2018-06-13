@@ -41,6 +41,7 @@ class  MapContainer extends Component {
   }
 
   getCoffeeShops = () => {
+    
     axios.get(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.currentLocation.lat},${this.state.currentLocation.lng}&radius=1500&type=cafe&key=AIzaSyA_BiGhxTrDhBx8bBEJ41Elbjt7n419I_Q`)
       .then(res => {
         console.log(res)
