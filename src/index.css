@@ -7,7 +7,7 @@ body {
   font-family: 'Seymour One', sans-serif;
   font-size: 30px;
   padding-top: 20px;
-  badding-bottom: 20px;
+  padding-bottom: 20px;
 }
 nav{
   height: 80px;
@@ -99,9 +99,17 @@ aside a{
   width: 100%;
   height: 100px;
 }
+.showOne .btn{
+  margin: 5px;
+}
 .updateForm{
   position: relative;
   top: 100px;
+  margin-left: 5px;
+}
+.updateForm .btn{
+  position: relative;
+  margin: 10px 10px 0px 5px;
 }
 .map{
   top: 100px;

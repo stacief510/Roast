@@ -119,6 +119,7 @@ class Drink extends Component {
                     <input className="form-control" name="review" onChange={this.handleChange} type="text" value={this.state.drinks.review}/>
                     <label>Rating:</label>
                     <input className="form-control" type="number" min="1" max="5" name="rating" onChange={this.handleChange} type="text" value={this.state.drinks.rating}/>
+                    <Link to={`/roast/users/${this.props.match.params.user_id}/drinks`} className="btn btn-info">Back to Profile</Link>
                     <button className="btn btn-info" type="submit" >Save Event</button>
                 </form>
             </div>
