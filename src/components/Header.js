@@ -23,6 +23,9 @@ const Header = (props) =>{
                                     <li className="nav-item">
                                     <a className="nav-link" href="/roast/find">Find Coffee</a>
                                     </li>
+                                    <li className="nav-item">
+                                    <a className="nav-link" href="/roast/topRated">Top Rated Coffee</a>
+                                    </li>
                                     <li>
                                     {/* <a className="nav-link" href={`/roast/users/${this.props.user.id}/drinks`}> Profile</a>  */}
                                     </li>

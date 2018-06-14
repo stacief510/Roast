@@ -58,7 +58,7 @@ class PostContainer extends Component {
         console.log('this is the user', this.state.user);
         return(
             <div>
-                <Header />
+                <Header drinks={this.state.drinks}/>
                 <div id="profile" className='container'>
                     <div className="row">
                     <aside className="col-md-4">
@@ -66,7 +66,6 @@ class PostContainer extends Component {
                         <h2>{this.state.user.name}</h2>
                         <h3>{this.state.user.current_city}</h3>
                         <button className="btn btn-info create" data-toggle="modal" data-target="#modal">Create a Review</button>
-                        <a href='#'>Top Rated Coffee</a>
                     </aside>
 
                     <div className='col-md-8 reviews'>

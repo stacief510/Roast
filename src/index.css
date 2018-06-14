@@ -114,4 +114,7 @@ aside a{
 .map{
   top: 100px;
 }
-
+.topRated{
+  position: relative;
+  top: 100px;
+}
