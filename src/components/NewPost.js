@@ -43,15 +43,15 @@ class NewPost extends Component {
 								<div className="modal-body">
 									
 											<label>Name of Drink:</label>
-											<input type='text' name="drink" placeholder="Drink Name Here" value={this.state.drink} onChange={this.handleChange}/>
+											<input type='text' name="drink" placeholder="Drink Name Here" required value={this.state.drink} onChange={this.handleChange}/>
 											<label>Store:</label>
-											<input type='text' name="store" placeholder="Store Name Here" value={this.state.store} onChange={this.handleChange}/>
+											<input type='text' name="store" placeholder="Store Name Here" required value={this.state.store} onChange={this.handleChange}/>
 											<label>Review Title:</label>
-											<input type='text' name="review_title" placeholder="Title Your Review" value={this.state.review_title} onChange={this.handleChange}/>
+											<input type='text' name="review_title" placeholder="Title Your Review" required value={this.state.review_title} onChange={this.handleChange}/>
 											<label>Review:</label>
-											<textarea className="textarea" wrap="hard" type='area' name="review" value={this.state.review} onChange={this.handleChange} />
+											<textarea className="textarea" wrap="hard" type='area' name="review" required value={this.state.review} onChange={this.handleChange} />
 											<label>Rating:</label>
-											<input type='number' min="1" max="5" name="rating" placeholder="Rate this drink: 1 - 5. 5 being the best!" value={this.state.rating} onChange={this.handleChange}/>
+											<input type='number' min="1" max="5" name="rating" placeholder="Rate this drink: 1 - 5. 5 being the best!" required value={this.state.rating} onChange={this.handleChange}/>
 											<label>Add a Photo:</label>
 											<input type='text' name="drink_photo" placeholder="url of photo" value={this.state.drink_photo} onChange={this.handleChange}/>
 									
