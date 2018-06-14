@@ -84,7 +84,7 @@ class  MapContainer extends Component {
             {lat: this.state.currentLocation.lat,
             lng: this.state.currentLocation.lng}
           }
-            zoom={14}
+            zoom={15}
             onClick={this.onMapClicked}
             nearbySearch={{
               location: this.state.currentLocation,
