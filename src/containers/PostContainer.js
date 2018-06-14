@@ -15,7 +15,7 @@ class PostContainer extends Component {
         }
    
      componentDidMount(){
-        axios.get(`http://localhost:3001/users/${this.props.match.params.user_id}/drinks`)
+        axios.get(`https://roast-backend.herokuapp.com/users/${this.props.match.params.user_id}/drinks`)
             .then((res)=>{
                 console.log('drink data:', res.data)
                 this.setState({
@@ -24,7 +24,7 @@ class PostContainer extends Component {
             }).then(() => {
                     
             })
-        axios.get(`http://localhost:3001/users/${this.props.match.params.user_id}`)
+        axios.get(`https://roast-backend.herokuapp.com/users/${this.props.match.params.user_id}`)
         .then((res)=>{
             console.log('getting one user: ', res.data)
             this.setState({
@@ -39,7 +39,7 @@ class PostContainer extends Component {
         let currentUser_Id = this.state.user._id;
         console.log('currentUserId:', currentUser_Id);
             newDrink.user_id = currentUser_Id;
-            axios.post(`http://localhost:3001/users/${currentUser_Id}/drinks`, newDrink)
+            axios.post(`https://roast-backend.herokuapp.com/users/${currentUser_Id}/drinks`, newDrink)
                  .then(res => {
                     
                     console.log('heyyooo new drank:', res.data.user_id);

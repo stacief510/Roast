@@ -24,7 +24,7 @@ class Login extends Component {
 			password: this.state.password,
 		}
 
-		axios.post('http://localhost:3001/login', userData)
+		axios.post('https://roast-backend.herokuapp.com/login', userData)
 		  .then(res => {
 		  	const { token } = res.data;
 		  	// save to localStorage

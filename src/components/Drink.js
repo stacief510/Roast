@@ -12,7 +12,7 @@ class Drink extends Component {
     componentDidMount = () => {
         let oneUser = this.props.match.params.user_id;
         let oneReview = this.props.match.params.drink_id;
-        axios.get(`http://localhost:3001/users/${oneUser}/drinks/${oneReview}`)
+        axios.get(`https://roast-backend.herokuapp.com/users/${oneUser}/drinks/${oneReview}`)
         .then((res)=>{
             console.log("Drink Response :", res)
             this.setState({
@@ -27,7 +27,7 @@ class Drink extends Component {
         let oneReviewId = this.props.match.params.drink_id;
         console.log('oneuserid', oneUserId);
         console.log('drinkId', oneReviewId);
-        axios.delete(`http://localhost:3001/users/${oneUserId}/drinks/${oneReviewId}`, {data: {id: oneReviewId}})
+        axios.delete(`https://roast-backend.herokuapp.com/users/${oneUserId}/drinks/${oneReviewId}`, {data: {id: oneReviewId}})
             .then(res => {
                 this.props.history.push(`/roast/users/${oneUserId}/drinks`);
             })
@@ -58,7 +58,7 @@ class Drink extends Component {
         let oneUserId = this.props.match.params.user_id;
         let oneReviewId = this.props.match.params.drink_id;
         // console.log("EDIT SUBMISSION: ", test)
-        axios.put(`http://localhost:3001/users/${oneUserId}/drinks/${oneReviewId}`, test)
+        axios.put(`https://roast-backend.herokuapp.com/users/${oneUserId}/drinks/${oneReviewId}`, test)
             .then(res => {
                 let updatedDrink = res.data;
                 console.log('this is data', updatedDrink)

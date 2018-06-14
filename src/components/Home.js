@@ -9,7 +9,7 @@ class Home extends Component {
     }
 
     componentDidMount() {
-		axios.get('http://localhost:3001/users')
+		axios.get('https://roast-backend.herokuapp.com/users')
 		  .then(res => this.setState({users: res.data}))
 		  .catch(err => console.log(err));
 	}

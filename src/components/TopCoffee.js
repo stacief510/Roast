@@ -8,7 +8,7 @@ class TopCoffee extends Component {
         drinks: [],
     }
     componentDidMount(){
-        axios.get(`http://localhost:3001/drinks`)
+        axios.get(`https://roast-backend.herokuapp.com/drinks`)
             .then((res)=>{
                 console.log('drink data:', res.data)
                 this.setState({
