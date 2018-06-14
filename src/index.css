@@ -118,3 +118,17 @@ aside a{
   position: relative;
   top: 100px;
 }
+.logInNav{
+  display: inline;
+  position: absolute;
+  left: 83%
+}
+.homePageLink{
+  margin-right: 20px;
+  color: mintcream;
+
+}
+.drinksList2{
+  width: 80%;
+  margin: auto;
+}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Header from './Header';
 import axios from 'axios';
 
 class TopCoffee extends Component {
@@ -24,7 +25,7 @@ class TopCoffee extends Component {
             if (drink.rating === 5){
     
                 return(
-                            <div className='drinksList' key={idx}>
+                            <div className='drinksList2' key={idx}>
                                 <div className="review row">
                                     <div className="col-md-4">
                                         <img alt="drinkPic" className="drinkPic" src={drink.drink_photo}/>
@@ -43,7 +44,8 @@ class TopCoffee extends Component {
         }) 
         return(
             <div className="topRated">
-                <h1>Top Rated Coffee</h1>
+                <Header/>
+                <h1 className="topCoffee" >Top Rated Coffee</h1>
                {result}
             </div>
         )
